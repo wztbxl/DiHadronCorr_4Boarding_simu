@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<job name="&runnumber;.job" maxFilesPerProcess="1"  copyInputLocally="false" filesPerHour="0.04">
+    <command>
+	stardev 
+	set line=`cat $FILELIST`
+	echo "input: $line"
+	set run=$line[1]
+	echo "run: $run"
+	set nevts=$line[2]
+
+        set basename=pythia_$run
+        set fzdfile=$basename.fzd
+        echo $fzdfile
+
+        root4star -b -q runPythia.C\($nevts,$run\) 
+    </command>
+    <input URL="filelist:&listdir;/&runnumber;.req.txt" />
+    <stdout URL="file:&outdir;/log/&runnumber;.$JOBINDEX.log" />
+    <stderr URL="file:&outdir;/err/&runnumber;.$JOBINDEX.err" />
+    <output fromScratch="*.root" toURL="file:&outdir;/" />
+    <!--<output fromScratch="*.fzd" toURL="file:&outdir;/" />-->
+    <ResourceUsage>
+        <Memory>
+              <MinMemory>8000</MinMemory>
+        </Memory>
+        <StorageSpace>
+              <MinStorage>8000</MinStorage>
+        </StorageSpace>
+    </ResourceUsage>
+    <SandBox>
+        <Package>
+	    <File>file:runPythia.C</File>
+	    <File>file:./.sl73_gcc485/</File>
+        </Package>
+    </SandBox>
+    <Generator>
+        <Location>/star/data05/scratch/xchu/fms2015/Pythia/FmsPionHadron</Location>
+    </Generator>
+</job>
