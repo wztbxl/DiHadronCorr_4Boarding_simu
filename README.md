@@ -1,4 +1,9 @@
 # Code for the Di hadron correlation boarding simulation.
+## Download the code to your local path
+```
+git clone git@github.com:wztbxl/DiHadronCorr_4Boarding_simu.git
+```
+
 
 ## how to run the code 
 The main macro is 
