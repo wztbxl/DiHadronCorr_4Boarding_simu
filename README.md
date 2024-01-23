@@ -1,3 +1,9 @@
+# Code for the Di hadron correlation boarding simulation.
+
+## how to run the code 
+The main macro is 
+runPythia.C
+
 For kT, reference from Hekki
 https://arxiv.org/pdf/1309.6963.pdf, Fig5
 pp: kT = 0.25 GeV/c
