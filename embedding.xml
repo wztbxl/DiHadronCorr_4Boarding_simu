@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <job name="&runnumber;.job" maxFilesPerProcess="1"  copyInputLocally="false" filesPerHour="0.04">
     <command>
-	stardev 
+	<!-- stardev  -->
+	starver SL22a
 	set line=`cat $FILELIST`
 	echo "input: $line"
 	set run=$line[1]
