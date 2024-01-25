@@ -8,6 +8,7 @@ do
     while IFS="| " read -r node jobs completed removed idle running held suspended
     do
         output+=("$node $jobs $completed $removed $idle $running $held $suspended")
+        echo "$node $jobs $completed $removed $idle $running $held $suspended"
     done < <(/star/u/wangzhen/bin/mysubmit | grep -E 'rcas[0-9]+ ' | )
 
     # 逐行读取数组中的内容
