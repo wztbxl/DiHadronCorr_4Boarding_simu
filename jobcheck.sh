@@ -18,5 +18,5 @@ do
     done < temp.txt
 
     # 每隔一分钟执行一次
-    sleep 1
+    sleep 60
 done
