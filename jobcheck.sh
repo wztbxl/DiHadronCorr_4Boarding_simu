@@ -9,6 +9,7 @@ do
     # 解析临时文件的内容，提取每个节点的运行作业数量
     while IFS="| " read -r node jobs completed removed idle running held suspended
     do
+        echo "$node $jobs $completed $removed $idle $running $held $suspended"
         # 检查节点的运行作业数量
         if [[ "$running" =~ ^[0-9]+$ ]] && [ "$running" -gt 0 ]; then
             # 将节点的信息写入out.txt文件
