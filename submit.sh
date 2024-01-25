@@ -2,7 +2,7 @@
 
 field=-5.0 # kG
 echo "setting field=$field"
-dir=/star/u/xchu/pwg/DiPion0Corr/Pythia/Broadening
+dir=/star/u/wangzhen/data01/QA/ColdQCD/DiHardon_Simulation
 listdir=`pwd`
 #using the following two lines for test
 #daqdir=$HOME/public/daq

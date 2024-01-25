@@ -34,6 +34,6 @@
         </Package>
     </SandBox>
     <Generator>
-        <Location>/star/data05/scratch/xchu/fms2015/Pythia/FmsPionHadron</Location>
+        <Location>/star/u/wangzhen/data01/QA/ColdQCD/generator/</Location>
     </Generator>
 </job>
