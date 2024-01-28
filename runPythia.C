@@ -218,14 +218,20 @@ TPythia6 *myPythia6 = new TPythia6();
 //3. change final state parton shower
 //4. change pT frag
 //1.1 set kT = 0, No IS PS, No FS PS, No pT frag
-printf("PARP(91) was %f, replacing it with 0.0\n",myPythia6->GetPARP(91));
-printf("MSTP(61) was %f, replacing it with 0.0\n",myPythia6->GetMSTP(61));
-printf("MSTP(71) was %f, replacing it with 0.0\n",myPythia6->GetMSTP(71));
-printf("PARJ(21) was %f, replacing it with 0.0\n",myPythia6->GetPARJ(21)); 
-// myPythia6->SetMSTP(91,1.5);//kT
-myPythia6->SetMSTP(61,1);//ISPS
+double default_PARP_91 = myPythia6->GetPARP(91);
+double default_MSTP_61 = myPythia6->GetMSTP(61);
+double default_MSTP_71 = myPythia6->GetMSTP(71);
+double deafult_PARJ_21 = myPythia6->GetPARJ(21);
+myPythia6->SetMSTP(91,1);//kT
+// myPythia6->SetPARP(91,0.4); //Zheng Liang, https://arxiv.org/pdf/1403.2413.pdf
+myPythia6->SetPARP(91,0.25); //For kT, reference from Hekki
+myPythia6->SetMSTP(61,0);//ISPS
 myPythia6->SetMSTP(71,0);//FSPS
 myPythia6->SetPARJ(21,0);//pT frag
+printf("PARP(91) was %f, replacing it with %f\n",default_PARP_91, myPythia6->GetPARP(91));
+printf("MSTP(61) was %f, replacing it with %f\n",default_MSTP_61, myPythia6->GetMSTP(61));
+printf("MSTP(71) was %f, replacing it with %f\n",default_MSTP_71, myPythia6->GetMSTP(71));
+printf("PARJ(21) was %f, replacing it with %f\n",deafult_PARJ_21, myPythia6->GetPARJ(21)); 
   }
   //
   // Setup geometry and set starsim to use agusread for input
