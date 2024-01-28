@@ -218,11 +218,11 @@ TPythia6 *myPythia6 = new TPythia6();
 //3. change final state parton shower
 //4. change pT frag
 //1.1 set kT = 0, No IS PS, No FS PS, No pT frag
-printf("PARP(91) was %f, replacing it with 0.0\n",myPythia6->GetMSTP(91));
-printf("PARP(61) was %f, replacing it with 0.0\n",myPythia6->GetMSTP(61));
-printf("PARP(71) was %f, replacing it with 0.0\n",myPythia6->GetMSTP(71));
+printf("PARP(91) was %f, replacing it with 0.0\n",myPythia6->GetPARP(91));
+printf("MSTP(61) was %f, replacing it with 0.0\n",myPythia6->GetMSTP(61));
+printf("MSTP(71) was %f, replacing it with 0.0\n",myPythia6->GetMSTP(71));
 printf("PARJ(21) was %f, replacing it with 0.0\n",myPythia6->GetPARJ(21)); 
-myPythia6->SetMSTP(91,1.5);//kT
+// myPythia6->SetMSTP(91,1.5);//kT
 myPythia6->SetMSTP(61,1);//ISPS
 myPythia6->SetMSTP(71,0);//FSPS
 myPythia6->SetPARJ(21,0);//pT frag
