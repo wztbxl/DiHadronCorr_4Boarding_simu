@@ -63,7 +63,7 @@ case1 :
 - no $k_T$, IS off, FS off, $p_{T}^{frag}$ off
 
 case2 :
-- $k_T$ = 0.2, IS off, FS off, $p_{T}^{frag}$ off
+- $k_T$ = 0.25, IS off, FS off, $p_{T}^{frag}$ off
 
 case3 :
 - no $k_T$, IS on(2), FS off, $p_{T}^{frag}$ off
@@ -76,4 +76,7 @@ case 5:
 
 case 6:
 - $k_T$ = 0.2, IS on(2), FS on(1), $p_{T}^{frag}$ on(default)
+
+case7 :
+- $k_T$ = 1., IS off, FS off, $p_{T}^{frag}$ off
 
