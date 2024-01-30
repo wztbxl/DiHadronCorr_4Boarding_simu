@@ -184,7 +184,7 @@ genevents::genevents(TTree *tree) : fChain(0)
 // if parameter tree is not specified (or zero), connect the file
 // used to generate this class and read the Tree.
   //char* dir="/star/u/xchu/pwg/DiPion0Corr/Pythia/Broadening/output/1";
-  char* dir="/star/u/xchu/pwg/DiPion0Corr/Pythia/Broadening/output/Pythia100kT2.0";
+  char* dir="/star/u/wangzhen/data01/QA/ColdQCD/DiHardon_Simulation/output/case2/";
   TSystemDirectory DIR(dir, dir);
   TList *files = DIR.GetListOfFiles();
   TChain* trees = new TChain();

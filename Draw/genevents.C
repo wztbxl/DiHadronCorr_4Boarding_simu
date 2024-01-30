@@ -275,7 +275,7 @@ drawLatex(xx, yy-4.2*dy, "2.6<#eta^{h^{+/-}}<4.0", 42, size+0.03,kBlue);
 drawLatex(xx, yy-5.8*dy, "p_{T}^{h^{+/-}}>0.2 GeV/c", 42, size+0.03,kBlue);
 drawLatex(xx, yy-7.8*dy, "k_{T}=0, No PS, p_{T}^{frag}=0",42, size+0.03,kBlue);
 
-cvsphi->SaveAs("phi_h_KT2_Tune100_midrap.pdf");
+cvsphi->SaveAs("phi_h_case2_Tune100_fmsDipi0.pdf");
 
 
 TCanvas* cvsx = new TCanvas("cvsx", "cvsx", 1200, 800);
