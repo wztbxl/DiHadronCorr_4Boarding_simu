@@ -80,3 +80,11 @@ case 6:
 case7 :
 - $k_T$ = 1., IS off, FS off, $p_{T}^{frag}$ off
 
+case8 :
+- $k_T$ = 0.25, IS on, FS off, $p_{T}^{frag}$ off
+
+case8 :
+- $k_T$ = 0.4, IS on, FS off, $p_{T}^{frag}$ off
+
+case9 :
+- $k_T$ = 1, IS on, FS off, $p_{T}^{frag}$ off
