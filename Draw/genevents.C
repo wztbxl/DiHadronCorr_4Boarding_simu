@@ -158,10 +158,10 @@ gStyle->SetOptDate(0);
 
 //sort pi0 by pT
 if(nPi0>1){
-	std::sort(Pi0.begin(), Pi0.end(), myobject);
-//	std::sort(Pi0.begin(), Pi0.end(), [](TLorentzVector* a, TLorentzVector* b) {
-//	return b.Pt() < a.Pt();
-//	            });
+	// std::sort(Pi0.begin(), Pi0.end(), myobject);
+	std::sort(Pi0.begin(), Pi0.end(), [](TLorentzVector* a, TLorentzVector* b) {
+	return b.Pt() < a.Pt();
+	            });
            }
 	
 if (nPi0>1){//evts with at least two pi0s
