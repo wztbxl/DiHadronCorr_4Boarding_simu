@@ -148,7 +148,9 @@ gStyle->SetOptDate(0);
 	if ((abs(mParticles_mId[i])==2212)||(abs(mParticles_mId[i])==211)||(abs(mParticles_mId[i])==321)){
 	//if (mParticles_mId[i]==111){
 		vPi0.SetPxPyPzE(mParticles_mPx[i],mParticles_mPy[i],mParticles_mPz[i],mParticles_mEnergy[i]);
-		if(vPi0.E()<=1||vPi0.Pt()<=1||vPi0.Eta()>=1||vPi0.Eta()<-1)continue;
+		if(vPi0.E()<=1||vPi0.Pt()<=1||vPi0.Eta()>=4||vPi0.Eta()<2.5)continue; //fms
+		if(vPi0.Pt()<1.e-5) continue;
+		// if(vPi0.E()<=1||vPi0.Pt()<=1||vPi0.Eta()>=1||vPi0.Eta()<-1)continue; //mid rapidity
 		nPi0++;
 		Pi0.push_back(vPi0);
 		}
