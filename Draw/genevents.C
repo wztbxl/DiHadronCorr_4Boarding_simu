@@ -1,11 +1,11 @@
 #define genevents_cxx
 #include "genevents.h"
-// #include <TH2.h>
-// #include <TStyle.h>
-// #include <TCanvas.h>
-// #include <iostream>     // std::cout
-// //#include <algorithm>    // std::sort
-// #include <vector>       // std::vector
+#include <TH2.h>
+#include <TStyle.h>
+#include <TCanvas.h>
+#include <iostream>     // std::cout
+#include <algorithm>    // std::sort
+#include <vector>       // std::vector
 
 static const double PI=TMath::Pi();
 static const double twoPI=PI*2.0;
