@@ -151,17 +151,23 @@ gStyle->SetOptDate(0);
 		if(vPi0.E()<=1||vPi0.Pt()<=1||vPi0.Eta()>=4||vPi0.Eta()<2.5)continue; //fms
 		if(vPi0.Pt()<1.e-5) continue;
 		// if(vPi0.E()<=1||vPi0.Pt()<=1||vPi0.Eta()>=1||vPi0.Eta()<-1)continue; //mid rapidity
-		nPi0++;
 		Pi0.push_back(vPi0);
+		nPi0++;
 		}
 	}//particle loop
+//QA for the vector
+for (auto i : Pi0)
+{
+	cout << "pT = " << i.Pt() << endl;
+}
+
 
 //sort pi0 by pT
 if(nPi0>1){
-	// std::sort(Pi0.begin(), Pi0.end(), myobject);
-	std::sort(Pi0.begin(), Pi0.end(), [](TLorentzVector* a, TLorentzVector* b) {
-	return b.Pt() < a.Pt();
-	            });
+	std::sort(Pi0.begin(), Pi0.end(), myobject);
+	// std::sort(Pi0.begin(), Pi0.end(), [](TLorentzVector* a, TLorentzVector* b) {
+	// return b.Pt() < a.Pt();
+	            // });
            }
 	
 if (nPi0>1){//evts with at least two pi0s
