@@ -22,10 +22,10 @@
     <!--<output fromScratch="*.fzd" toURL="file:&outdir;/" />-->
     <ResourceUsage>
         <Memory>
-              <MinMemory>8000</MinMemory>
+              <MinMemory>9000</MinMemory>
         </Memory>
         <StorageSpace>
-              <MinStorage>8000</MinStorage>
+              <MinStorage>9000</MinStorage>
         </StorageSpace>
     </ResourceUsage>
     <SandBox>
