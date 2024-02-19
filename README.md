@@ -75,7 +75,7 @@ case 5:
 - no $k_T$, IS on(2), FS on(1), $p_{T}^{frag}$ on(default)
 
 case 6:
-- $k_T$ = 0.2, IS on(2), FS on(1), $p_{T}^{frag}$ on(default)
+- $k_T$ = 0.25, IS on(2), FS on(1), $p_{T}^{frag}$ on(default)
 
 case7 :
 - $k_T$ = 1., IS off, FS off, $p_{T}^{frag}$ off
@@ -88,3 +88,10 @@ case9 :
 
 case10 :
 - $k_T$ = 1, IS on, FS off, $p_{T}^{frag}$ off
+
+
+## Job submit log
+2024.2.19 
+- DiHardon_Simulation submit case1
+- DiHardon_Simulation_2 submit case2
+
