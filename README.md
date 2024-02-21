@@ -98,3 +98,6 @@ case10 :
 2024.2.20
 - DiHardon_Simulation_2 submit case7
 
+## working log
+2024.2.21
+case7 does not seem to have boarding now, is there some issue when doing the scaling? 
