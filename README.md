@@ -89,6 +89,11 @@ case9 :
 case10 :
 - $k_T$ = 1, IS on, FS off, $p_{T}^{frag}$ off
 
+case11 :
+- close Pytune(100) option and remove the star tune( pypars.parp(90)=0.213; ), this using the default tune
+- no $k_T$, IS off, FS off, $p_{T}^{frag}$ off
+- try to reproduce Zhengliang's simulation
+
 
 ## Job submit log
 2024.2.19 
@@ -98,6 +103,27 @@ case10 :
 2024.2.20
 - DiHardon_Simulation_2 submit case7
 
+2024.2.28
+- DiHardon_Simulation_2 submit case11
+
 ## working log
 2024.2.21
 case7 does not seem to have boarding now, is there some issue when doing the scaling? 
+
+2024.2.28
+Now, the baseline is zhengliang's sharp peak. The plan is to reproduce this sharp peak. If case 11 can not repeat this, the plan is 
+- Ask Zheng liang what his pythia setting is and try to reproduce his result with this.
+- if can not repeat, check the code and find the part of STAR detector effect setting.
+
+## work plan
+Simulate the data with this setting:
+- Zhengliang's sharp peak
+- case 1
+- case 3
+- case 4
+- case 5
+- case 6
+- case 6 with $k_{T}$ = 0.5
+- case 6 with $k_{T}$ = 1
+
+after simulating all of these cases, calculate the width of away side peak and get the ratio to the pp sample(or baseline sample) 
