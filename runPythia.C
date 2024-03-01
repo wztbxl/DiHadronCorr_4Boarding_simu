@@ -92,7 +92,8 @@ void Pythia6( TString mode="pp:DY", Int_t tune=100)
 // ----------------------------------------------------------------------------
 // ----------------------------------------------------------------------------
 // ----------------------------------------------------------------------------
-void runPythia( Int_t nevents=3, Int_t run=1, char* particle="fmsdipi0", float vz=0.0, Int_t tune=100){ 
+// void runPythia( Int_t nevents=3, Int_t run=1, char* particle="fmsdipi0", float vz=0.0, Int_t tune=100){ 
+void runPythia( Int_t nevents=3, Int_t run=1, char* particle="mb", float vz=0.0, Int_t tune=100){ // try get a minbias sample
   cout<<"Random seed : "<<run<<endl;
 
   gROOT->ProcessLine(".L bfc.C");{
