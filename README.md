@@ -115,6 +115,12 @@ Now, the baseline is zhengliang's sharp peak. The plan is to reproduce this shar
 - Ask Zheng liang what his pythia setting is and try to reproduce his result with this.
 - if can not repeat, check the code and find the part of STAR detector effect setting.
 
+2024.4.10
+Check the MB data, using old plotting code the result looks strange
+- Check plotting macros w or w/o fwd or some eta selection
+- Check Zhengliang's paper to check how to pair the dihadron
+- if set mb, pysubs.mesl = 2, what's different to mesl = 1
+
 ## work plan
 Simulate the data with this setting:
 - Zhengliang's sharp peak
