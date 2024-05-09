@@ -106,6 +106,10 @@ case11 :
 2024.2.28
 - DiHardon_Simulation_2 submit case11
 
+2024.5.09
+- DiHardon_Simulation_2 submit case4
+- DiHardon_Simulation submit a job with MSTP(91) but parameter set to 0
+
 ## working log
 2024.2.21
 case7 does not seem to have boarding now, is there some issue when doing the scaling? 
