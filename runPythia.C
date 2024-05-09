@@ -209,8 +209,8 @@ primaryMaker->SetAttr("FilterKeepHeader", int(0));
   //chenging pypars(90) 
   if(tune==100){
       PyPars_t &pypars = pythia6->pypars();
-      //printf("PARP(90) was %f, replacing it with 0.213\n",pypars.parp(90));
-      //pypars.parp(90)=0.213;
+      printf("PARP(90) was %f, replacing it with 0.213\n",pypars.parp(90));
+      pypars.parp(90)=0.213;
 /*****************************Broending test************************/
 TPythia6 *myPythia6 = new TPythia6();
 //myPythia6->SetPARP(90,0.213);//original from Akio
@@ -225,16 +225,17 @@ double default_MSTP_71 = myPythia6->GetMSTP(71);
 double deafult_PARJ_21 = myPythia6->GetPARJ(21);
 // myPythia6->SetMSTP(91,0);//kT
 myPythia6->SetMSTP(91,1);//kT
+myPythia6->SetPARP(91,0); //Zheng Liang, https://arxiv.org/pdf/1403.2413.pdf
 // myPythia6->SetPARP(91,0.4); //Zheng Liang, https://arxiv.org/pdf/1403.2413.pdf
-myPythia6->SetPARP(91,0.25); //For kT, reference from Hekki, pp kT
+// myPythia6->SetPARP(91,0.25); //For kT, reference from Hekki, pp kT
 // myPythia6->SetMSTP(61,2);//ISPS
-myPythia6->SetMSTP(61,1);//no ISPS
-// myPythia6->SetMSTP(61,0);//no ISPS
-myPythia6->SetMSTP(71,1);//no FSPS
-// myPythia6->SetMSTP(71,0);//no FSPS
-myPythia6->SetMSTJ(13,1);//no pT frag
-// myPythia6->SetMSTJ(13,0);//no pT frag
-// myPythia6->SetPARJ(21,0);//pT frag width
+// myPythia6->SetMSTP(61,2);//no ISPS
+myPythia6->SetMSTP(61,0);//no ISPS
+// myPythia6->SetMSTP(71,1);//no FSPS
+myPythia6->SetMSTP(71,0);//no FSPS
+// myPythia6->SetMSTJ(13,1);//no pT frag
+myPythia6->SetMSTJ(13,0);//no pT frag
+myPythia6->SetPARJ(21,0);//pT frag width
 printf("PARP(91) was %f, replacing it with %f\n",default_PARP_91, myPythia6->GetPARP(91));
 printf("MSTP(61) was %f, replacing it with %f\n",default_MSTP_61, myPythia6->GetMSTP(61));
 printf("MSTP(71) was %f, replacing it with %f\n",default_MSTP_71, myPythia6->GetMSTP(71));
