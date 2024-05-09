@@ -186,13 +186,13 @@ genevents::genevents(TTree *tree) : fChain(0)
 {
 // if parameter tree is not specified (or zero), connect the file
 // used to generate this class and read the Tree.
-  dir="/hep/home/wangz/old/STAR/ColdQCD/Dihadron_Boarding_simu/case6_pp_0p25_STAR";
+//   dir="/hep/home/wangz/old/STAR/ColdQCD/Dihadron_Boarding_simu/case6_pp_0p25_STAR";
 //   dir="/hep/home/wangz/old/STAR/ColdQCD/Dihadron_Boarding_simu/case6_pp_0p25";
 //   dir="/hep/home/wangz/old/STAR/ColdQCD/Dihadron_Boarding_simu/case6_pA_0p4";
 //   dir="/hep/home/wangz/old/STAR/ColdQCD/Dihadron_Boarding_simu/case6_pA_1";
   //dir="/hep/home/wangz/old/STAR/ColdQCD/Dihadron_Boarding_simu/MBcase";
-//   dir="/hep/home/wangz/old/STAR/ColdQCD/Dihadron_Boarding_simu/case11";
-//   dir="/Users/wztbxl/Desktop/SDUPWG/STAR/ColdQCD/Dihadron_Boarding_simu/case2";
+  dir="/hep/home/wangz/old/STAR/ColdQCD/Dihadron_Boarding_simu/case8";
+//   dir="/hep/home/wangz/old/STAR/ColdQCD/Dihadron_Boarding_simu/case7";
   //dir="/Users/wztbxl/Documents/work/run20/Dielectron/starsw/mount/coldQCD/DiHadronCorr_4Boarding_simu/Draw/output/Xiaoxuan";
 //   dir="/star/u/xchu/pwg/DiPion0Corr/Pythia/Broadening/output/Pythia100kT2.0";
   

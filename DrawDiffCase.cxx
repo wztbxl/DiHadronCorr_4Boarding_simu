@@ -73,26 +73,26 @@ void DrawDiffCase()
     vector<TString> TH1_title;
     cout << "000000" << endl;
 
-    // tag_name.push_back("case1");
-    // TH1_title.push_back("no k_{T}, IS off, FS off, p_{T}^{frag} off");
-    // tag_name.push_back("case2");
-    // TH1_title.push_back("k_{T} = 0.25, IS off, FS off, p_{T}^{frag} off");
-    // tag_name.push_back("case3");
-    // TH1_title.push_back("no k_{T}, IS on, FS off, p_{T}^{frag} off");
-    // tag_name.push_back("case8");
-    // TH1_title.push_back("k_{T} = 0.25, IS on, FS off, p_{T}^{frag} off");
+    tag_name.push_back("case1");
+    TH1_title.push_back("no k_{T}, IS off, FS off, p_{T}^{frag} off");
+    tag_name.push_back("case2");
+    TH1_title.push_back("k_{T} = 0.25, IS off, FS off, p_{T}^{frag} off");
+    tag_name.push_back("case3");
+    TH1_title.push_back("no k_{T}, IS on, FS off, p_{T}^{frag} off");
+    tag_name.push_back("case8");
+    TH1_title.push_back("k_{T} = 0.25, IS on, FS off, p_{T}^{frag} off");
     // // tag_name.push_back("case7");
     // TH1_title.push_back("k_{T} = 1, IS off, FS off, p_{T}^{frag} off");
 
     //checking kT scan, now pT set to 0.36
-    tag_name.push_back("case6_pA_0p4");
-    TH1_title.push_back("k_{T} = 0.4, IS on, FS on, p_{T}^{frag} on, p_{T}^{frag} = 0.36");
-    tag_name.push_back("case6_pA_1");
-    TH1_title.push_back("k_{T} = 1, IS on, FS on, p_{T}^{frag} on, p_{T}^{frag} = 0.36");
-    tag_name.push_back("case6_pp_0p25");
-    TH1_title.push_back("k_{T} = 0.25, IS on, FS on, p_{T}^{frag} on, p_{T}^{frag} = 0.36");
-    tag_name.push_back("case6_pp_0p25_STAR");
-    TH1_title.push_back("k_{T} = 0.25, IS on, FS on, p_{T}^{frag} on, p_{T}^{frag} = 0.36, STAR Tune");
+    // tag_name.push_back("case6_pA_0p4");
+    // TH1_title.push_back("k_{T} = 0.4, IS on, FS on, p_{T}^{frag} on, p_{T}^{frag} = 0.36");
+    // tag_name.push_back("case6_pA_1");
+    // TH1_title.push_back("k_{T} = 1, IS on, FS on, p_{T}^{frag} on, p_{T}^{frag} = 0.36");
+    // tag_name.push_back("case6_pp_0p25");
+    // TH1_title.push_back("k_{T} = 0.25, IS on, FS on, p_{T}^{frag} on, p_{T}^{frag} = 0.36");
+    // tag_name.push_back("case6_pp_0p25_STAR");
+    // TH1_title.push_back("k_{T} = 0.25, IS on, FS on, p_{T}^{frag} on, p_{T}^{frag} = 0.36, STAR Tune");
     cout << "111111" << endl;
 
     for (size_t i = 0; i < tag_name.size(); i++)
@@ -103,7 +103,7 @@ void DrawDiffCase()
         TFile* tem = new TFile(Form("/Users/wztbxl/Desktop/SDUPwg/STAR/ColdQCD/Dihadron_Boarding_simu/%s/output.root",tag_name[i].Data()));
         // name = Form("pi0deltaphi_allpT");
         // mTH1[tag_name[i]] = (TH1D*)tem->Get("pi0deltaphi_allpT");
-        //read the bin p^{trig}_{T}=2.0-2.5 GeV/c, p^{asso}_{T}=1.0-1.5 GeV/c
+        // read the bin p^{trig}_{T}=2.0-2.5 GeV/c, p^{asso}_{T}=1.0-1.5 GeV/c
         name = Form("pi0deltaphi_31");
         mTH1[tag_name[i]] = (TH1D*)tem->Get("pi0deltaphi_31");
         name = Form("pi0deltaphi_31_%s",tag_name[i].Data());
@@ -112,15 +112,17 @@ void DrawDiffCase()
     }
     
     TCanvas* c1 = new TCanvas("c1","c1",1600,1200);
-    TH2D* frame = new TH2D("frame","frame",100,-0.5*PI,1.5*PI,100,0,0.003);
-    frame->SetTitle(";#Delta #phi;counts");
+    TH2D* frame = new TH2D("frame","frame",100,-0.5*PI,1.5*PI,100,0,0.05);
+    frame->SetTitle("p^{trig}_{T}=2.0-2.5 GeV/c, p^{asso}_{T}=1.0-1.5 GeV/c ;#Delta #phi;counts");
     frame->SetStats(0);
-    frame->GetYaxis()->SetRangeUser(0,0.045);
+    frame->GetYaxis()->SetRangeUser(0,0.004);
     frame->Draw();
     TLegend* leg = new TLegend(0.6,0.7,0.89,0.89);
     leg->SetLineColor(0);
     leg->SetFillColor(0);
     leg->SetFillStyle(0);
+    // mTH1[tag_name[0]]->Draw("pel");
+
 
     // mTH1[tag_name[0]]->GetYaxis()->SetRangeUser(0,0.06);
     // mTH1[tag_name[0]]->Draw("pel");

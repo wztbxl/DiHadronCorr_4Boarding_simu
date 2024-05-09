@@ -155,16 +155,18 @@ void genevents::Loop()
     double id7 = mParticles_mId[6];
 
 	int nPi0 = 0;
-	for(int i=1;i<mNumParticles+1;i++){
-        TLorentzVector vPi0;
-	    // if ((abs(mParticles_mId[i])==2212)||(abs(mParticles_mId[i])==211)||(abs(mParticles_mId[i])==321)){// charge hadron pi/k/p
-	    if (mParticles_mId[i]==111){ //pi0
-		vPi0.SetPxPyPzE(mParticles_mPx[i],mParticles_mPy[i],mParticles_mPz[i],mParticles_mEnergy[i]);
-		if(vPi0.E()<=1||vPi0.Pt()<=1||vPi0.Eta()>=4||vPi0.Eta()<2.5)continue;  //fms
+	for(int i=1;i<mNumParticles+1;i++)
+  {
+    TLorentzVector vPi0;
+	  // if ((abs(mParticles_mId[i])==2212)||(abs(mParticles_mId[i])==211)||(abs(mParticles_mId[i])==321)){// charge hadron pi/k/p
+	  if (mParticles_mId[i]==111)
+    { //pi0
+		  vPi0.SetPxPyPzE(mParticles_mPx[i],mParticles_mPy[i],mParticles_mPz[i],mParticles_mEnergy[i]);
+		  if(vPi0.E()<=1||vPi0.Pt()<=1||vPi0.Eta()>=4||vPi0.Eta()<2.5)continue;  //fms
 		  // if(vPi0.E()<=1||vPi0.Pt()<=1||vPi0.Eta()>=1||vPi0.Eta()<-1)continue; //mid rapidity
-		if(vPi0.Pt()<1.e-5) continue;
-		Pi0.push_back(vPi0);
-		nPi0++;
+		  if(vPi0.Pt()<1.e-5) continue;
+		  Pi0.push_back(vPi0);
+		 nPi0++;
 		}
 	}//particle loop
   //QA for the vector
@@ -175,49 +177,54 @@ void genevents::Loop()
 
 
   //sort pi0 by pT
-if(nPi0>1){
-	std::sort(Pi0.begin(), Pi0.end(), myobject);
-	  // std::sort(Pi0.begin(), Pi0.end(), [](TLorentzVector* a, TLorentzVector* b) {
-	  // return b.Pt() < a.Pt();
-	  // });
-           }
+if(nPi0>1)
+{
+  std::sort(Pi0.begin(), Pi0.end(), myobject);
+  // std::sort(Pi0.begin(), Pi0.end(), [](TLorentzVector* a, TLorentzVector* b) {
+  // return b.Pt() < a.Pt();
+  // });
+}
 
 int nPion_tigger = 0;
-if (nPi0>1){//evts with at least two pi0s
-	int ptbin0, ptbin1;
-        for(unsigned int i=0; i<Pi0.size(); i++){ //loop over 1st pair
-		TLorentzVector vPi1   = Pi0[i];
-		               ptbin0 = ptbin(vPi1.Pt());
-		if(ptbin0>5)continue;
-		mmass[ptbin0]->Fill(vPi1.M());
-		for(unsigned int j=i+1; j<Pi0.size(); j++){
-			TLorentzVector vPi2   = Pi0[j];
-			               ptbin1 = ptbin(vPi2.Pt());
-			if(ptbin0>5||ptbin1>5)continue;
-			double avgpt = (vPi1.Pt()+vPi2.Pt())/2.;
-			double phi   = wrapAround(vPi1.DeltaPhi(vPi2));
-			mphi_pTAll->Fill(phi);
-			mpt[ptbin0][ptbin1]->Fill(avgpt);
-			mphi[ptbin0][ptbin1]->Fill(phi);
-   double x2       = (pow(TMath::E(),-1*vPi1.Eta())*vPi1.Pt()+pow(TMath::E(),-1*vPi2.Eta())*vPi2.Pt())/200.;
-   double xparton1 = xParton1>xParton2?xParton1:xParton2;
-   double xparton2 = xParton1<xParton2?xParton1:xParton2;
-                        if(xparton2<x2/5.)continue;
-			mX1[ptbin0][ptbin1]->Fill(xparton1);
-			mX2[ptbin0][ptbin1]->Fill(xparton2);
-			mPthat[ptbin0][ptbin1]->Fill(ptHat);
-		}//acco
-	   nTriggerPi0++;
-	   nPion_tigger++;
-           } //trig
-    //cout<<" Pi1 - Pi2 "<<vPi1.Pt()-vPi2.Pt()<<endl;
- }  //npi0>1
-      Pi0.clear();
-	  nPion->Fill(nPion_tigger);
-	  nEvents++;
-   }//event loop
-	cout << "total events  = " << nEvents << endl;
-  //Draw
+if (nPi0>1)
+  {//evts with at least two pi0s
+	  int ptbin0, ptbin1;
+    for(unsigned int i=0; i<Pi0.size(); i++)
+    { //loop over 1st pair
+		  TLorentzVector vPi1   = Pi0[i];
+		  ptbin0 = ptbin(vPi1.Pt());
+		  if(ptbin0>5)continue; // out of the pT range
+  		mmass[ptbin0]->Fill(vPi1.M());
+		  for(unsigned int j=i+1; j<Pi0.size(); j++) // loop asso particles
+      {
+			  TLorentzVector vPi2   = Pi0[j];
+			  ptbin1 = ptbin(vPi2.Pt());
+			  if(ptbin0>5||ptbin1>5)continue;
+			  double avgpt = (vPi1.Pt()+vPi2.Pt())/2.;
+			  double phi   = wrapAround(vPi1.DeltaPhi(vPi2));// set the phi range to the -pi/2 to pi*3/2
+			  mphi_pTAll->Fill(phi);
+			  mpt[ptbin0][ptbin1]->Fill(avgpt);
+			  mphi[ptbin0][ptbin1]->Fill(phi);
+        double x2       = (pow(TMath::E(),-1*vPi1.Eta())*vPi1.Pt()+pow(TMath::E(),-1*vPi2.Eta())*vPi2.Pt())/200.;
+        double xparton1 = xParton1>xParton2?xParton1:xParton2; // get two parton information
+        double xparton2 = xParton1<xParton2?xParton1:xParton2;
+        if(xparton2<x2/5.)continue;
+			  mX1[ptbin0][ptbin1]->Fill(xparton1);
+			  mX2[ptbin0][ptbin1]->Fill(xparton2);
+			  mPthat[ptbin0][ptbin1]->Fill(ptHat);//TODO: What's this?
+		  }//acco
+	    nTriggerPi0++;
+	    nPion_tigger++;
+    } //trig
+      //cout<<" Pi1 - Pi2 "<<vPi1.Pt()-vPi2.Pt()<<endl;
+  }//npi0>1
+  Pi0.clear();
+  nPion->Fill(nPion_tigger);
+  nEvents++;
+}//event loop
+cout << "total events  = " << nEvents << endl;
+  
+//Draw plots
 double xx = 0.18, yy = 0.84, dy = 0.09, size = 0.08;
 
 TCanvas* cvs = new TCanvas("cvs", "cvs", 1200, 800);
@@ -245,7 +252,7 @@ cout<<mmass[i]->GetEntries()<<endl;
 		mpt[i][j]->Draw();
 		N_pair = mpt[i][j]->GetEntries();
 		drawLatex(xx, yy, Form("p^{trig}_{T}=%3.1f-%3.1f GeV/c",ptcut[i],ptcut[i+1]), 42,size,1);
-                drawLatex(xx, yy-1.3*dy, Form("p^{asso}_{T}=%3.1f-%3.1f GeV/c",ptcut[j],ptcut[j+1]), 42,size,1);
+    drawLatex(xx, yy-1.3*dy, Form("p^{asso}_{T}=%3.1f-%3.1f GeV/c",ptcut[j],ptcut[j+1]), 42,size,1);
 		drawLatex(xx, yy-3*dy, Form("N^{h^{+/-} pair}=%3.0d",N_pair), 42,size,1);
 		mphi[i][j]->Scale(1./nTriggerPi0);
 		  // mphi[i][j]->Scale(1./(mmass[i]->GetEntries()));
