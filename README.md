@@ -12,7 +12,7 @@ runPythia.C
 For kT, reference from Hekki
 https://arxiv.org/pdf/1309.6963.pdf, Fig.5
 
-pp: $k_T$ = 0.25 GeV/c
+pp: $k_T^2$ = 0.25 $(GeV/c)^2$, $k_T$ = 0.5
 
 pAu: $k_T$ = 1.0 GeV/c
 
