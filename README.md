@@ -125,6 +125,11 @@ Check the MB data, using old plotting code the result looks strange
 - Check Zhengliang's paper to check how to pair the dihadron
 - if set mb, pysubs.mesl = 2, what's different to mesl = 1
 
+2024.6.19
+- submit 2 cases:
+  1. case6 $k_{T}$ = 0.25 GeV
+  2. case4
+
 ## work plan
 Simulate the data with this setting:
 - Zhengliang's sharp peak
